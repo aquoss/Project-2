@@ -1,4 +1,9 @@
 class UserController < ApplicationController
+
+  def index
+    @user = User.find_by_id(params[:id])
+  end
+
   def new
     @user = User.new
   end
@@ -6,7 +11,7 @@ class UserController < ApplicationController
   def create
     @user = User.create(user_params)
     login(@user)
-    redirect_to @user 
+    redirect_to @user
   end
 
   private
