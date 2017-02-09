@@ -1,1 +1,35 @@
-<h1>stuff n stuff</h1>
+<section class="row">
+  <h5 class="center">Welcome to FINDmE!</h5>
+</section>
+  <div class="container center">
+    <%= form_for @user, :validate => true  do |f| %>
+    <div class="row">
+      <div class="input-field col s6 offset-s3">
+        <%= f.text_field :username, placeholder: "Username"%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6 offset-s3">
+        <%= f.text_field :email, placeholder: "Email" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6 offset-s3">
+        <%= f.password_field :password, placeholder: "Password"%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s3 offset-s3">
+        <p>Choose a Profile Photo:</p>
+      </div>
+      <div class="input-field col s3">
+        <%= f.file_field :profile_photo, placeholder: "Profile Photo"%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s6 offset-s3">
+        <%= f.submit "Sign Up", class: "btn" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
