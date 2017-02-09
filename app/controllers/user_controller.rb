@@ -5,12 +5,8 @@ class UserController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    if @user.save
-      login(@user)
-      redirect_to @user
-    else
-      redirect_to '/'
-    end
+    login(@user)
+    redirect_to @user 
   end
 
   private
