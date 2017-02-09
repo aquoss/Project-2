@@ -1,4 +1,5 @@
 User.destroy_all
+Game.destroy_all
 
 user_data = []
 15.times do
@@ -11,3 +12,10 @@ user_data = []
   }
 end
 user = User.create(user_data)
+
+# game_data = []
+# 30.times do
+#   game_data << {
+#     hider_location:
+#   }
+# end
