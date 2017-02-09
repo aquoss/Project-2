@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170209204118) do
+ActiveRecord::Schema.define(version: 20170209225716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,8 +18,6 @@ ActiveRecord::Schema.define(version: 20170209204118) do
   create_table "games", force: :cascade do |t|
     t.string   "hider_id"
     t.string   "seeker_id"
-    t.string   "hider_location"
-    t.string   "seeker_location"
     t.boolean  "game_accepted?"
     t.integer  "game_duration"
     t.string   "winner"
@@ -30,6 +28,10 @@ ActiveRecord::Schema.define(version: 20170209204118) do
     t.boolean  "request_cancelled?"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.float    "hider_lat"
+    t.float    "hider_lng"
+    t.float    "seeker_lat"
+    t.float    "seeker_lng"
   end
 
   create_table "users", force: :cascade do |t|
