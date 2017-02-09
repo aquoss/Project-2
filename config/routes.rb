@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   get '/' => 'welcome#index', as: 'root'
-  get '/user/:id' => 'user#index', as: 'user_path'
-
-  get '/login' => 'sessions#new'
-  get '/logout' => 'sessions#destroy'
-  post '/sessions' => 'sessions#create'
-
+  get '/users/:id' => 'user#index', as: 'user'
+  get '/users/new' => 'users#new', as: 'new_user'
   post '/users' => 'users#create'
+
+  get '/login' => 'sessions#new', as: 'login'
+  get '/logout' => 'sessions#destroy', as: 'logout'
+  post '/sessions' => 'sessions#create'
 end
