@@ -1,8 +1,8 @@
 <section class="row">
-  <h5 class="center">Welcome to FINDmE!</h5>
+  <h4 class="center">Welcome to FINDmE!</h4>
 </section>
   <div class="container center">
-    <%= form_for @user, :validate => true  do |f| %>
+    <%= form_for @user do |f| %>
     <div class="row">
       <div class="input-field col s6 offset-s3">
         <%= f.text_field :username, placeholder: "Username"%>

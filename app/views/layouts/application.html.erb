@@ -12,6 +12,11 @@
 
   <body>
     <%= render "layouts/nav" %>
+    <% flash.each do |name, msg| %>
+      <p>
+        <small> <%= name.capitalize %>: <%= msg %> </small>
+      </p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
