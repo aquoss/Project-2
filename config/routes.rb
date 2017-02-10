@@ -13,4 +13,4 @@ Rails.application.routes.draw do
   get '/game/new' => 'game#new', as: 'new_game'
   get '/game/:id' => 'game#show'
 
-
+end
