@@ -1,7 +1,7 @@
 class UserController < ApplicationController
 
   def index
-    @user = User.find_by_id(params[:id])
+    @users = User.find_by_id(params[:id])
   end
 
   def new

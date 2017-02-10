@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get '/' => 'welcome#index', as: 'root'
-  
-  get '/user/:id' => 'user#index', as: 'user'
+
+  get '/users/:id' => 'user#index', as: 'user'
   get '/user/new' => 'user#new', as: 'new_user'
   post '/user' => 'user#create'
 
