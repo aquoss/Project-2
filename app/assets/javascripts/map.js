@@ -3,11 +3,17 @@ $(document).ready(function() {
     var map;
 
     initMap()
-    var hidersLocation = {
-        lat: 37.7904586,
-        lng: -122.4016422
-    };
-    addMarker(hidersLocation)
+    var hidersLocation = new google.maps.LatLng(
+        37.7904586,
+        -122.4016422
+    );
+    var seekersLocation = new google.maps.LatLng(
+      37.789968,
+      -122.425593
+    )
+    addMarker(hidersLocation);
+    var distance = google.maps.geometry.spherical.computeDistanceBetween(hidersLocation, seekersLocation)/1609.34;
+    console.log(distance);
 
     // Add circle overlay and bind to marker
     var circle = new google.maps.Circle({
@@ -30,12 +36,14 @@ $(document).ready(function() {
     }
 
     function addMarker(){
-      console.log(hidersLocation)
+      // console.log(hidersLocation)
       marker = new google.maps.Marker({
         position: hidersLocation,
         map: map
       })
+      marker.setVisible(false);
     }
+
     // UPDATE USERS LOCATION
     var watchId = navigator.geolocation.watchPosition(geo_success, geo_error, geo_options);
 
@@ -76,4 +84,8 @@ function currentLocation() {
   } else {
     alert("Looks like your browser doesn't support geocoding!");
   }
+}
+
+function checkDistance(){
+
 }
