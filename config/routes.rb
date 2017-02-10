@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy', as: 'logout'
   post '/sessions' => 'sessions#create'
 
+  get '/game/new' => 'game#new', as: 'new_game'
   get '/game/:id' => 'game#show'
+
 end
