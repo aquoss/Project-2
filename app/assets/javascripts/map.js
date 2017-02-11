@@ -1,24 +1,20 @@
-currentLocation()
+// currentLocation()
 $(document).ready(function() {
 
     var map;
     var distance;
+    var hidersLocation = {
+        lat: 37.800073,
+        lng: -122.410572
+    };
+    var seekersLocation;
+    var hidersMapLocation = new google.maps.LatLng(37.800073,-122.410572);
 
-    initMap()
-    var hidersLocation = new google.maps.LatLng(
-        37.7904586,
-        -122.4016422
-    );
-    // var seekersLocation = new google.maps.LatLng(
-    //   37.789968,
-    //   -122.425593
-    // )
+    // LOAD MAP AND HIDDEN HIDER MARKER
+    initMap();
     addMarker(hidersLocation);
 
-    // var distance = google.maps.geometry.spherical.computeDistanceBetween(hidersLocation, seekersLocation)/1609.34;
-
-
-    // Add circle overlay and bind to marker
+    // ADD RADIUS CIRCLE
     var circle = new google.maps.Circle({
         map: map,
         radius: 1609, // 10 miles in metres
@@ -82,15 +78,18 @@ $(document).ready(function() {
     //   inTierOne = true;
     // }
 
-  ////// CONTINUALLY UPDATES SEEKERS LOCATION ////////
+    //CONTINUALLY UPDATE SEEKERS LOCATION
     var watchId = navigator.geolocation.watchPosition(geo_success, geo_error, geo_options);
     // on success
     function geo_success(position) {
-        var ltlng = (
-            position.coords.latitude,
-            position.coords.longitude
-        );
-        distance = google.maps.geometry.spherical.computeDistanceBetween(hidersLocation, ltlng)/1609.34;
+        seekersLocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+        };
+        var seekersMapLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        distance = google.maps.geometry.spherical.computeDistanceBetween(hidersMapLocation, seekersMapLocation)/1609.34;
+        checkDistance(distance);
+        console.log(distance);
     }
     // on error
     function geo_error() {
@@ -105,16 +104,16 @@ $(document).ready(function() {
 })
 
 // GETS CURRENT LOCATION
-function currentLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var ltlng = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      }
-      hidersLocation = ltlng
-    });
-  } else {
-    alert("Looks like your browser doesn't support geocoding!");
-  }
-}
+// function currentLocation() {
+//   if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(function(position) {
+//       var ltlng = {
+//         lat: position.coords.latitude,
+//         lng: position.coords.longitude
+//       }
+//       hidersLocation = ltlng
+//     });
+//   } else {
+//     alert("Looks like your browser doesn't support geocoding!");
+//   }
+// }
