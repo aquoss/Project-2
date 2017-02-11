@@ -1,5 +1,3 @@
-require 'ffaker'
-
 User.destroy_all
 Game.destroy_all
 
