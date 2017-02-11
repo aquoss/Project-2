@@ -8,7 +8,7 @@ $(document).ready(function() {
         lng: -122.410572
     };
     var seekersLocation;
-    var hidersMapLocation = new google.maps.LatLng(37.7941359, -122.40493930000002);
+    var hidersMapLocation = new google.maps.LatLng(37.791823, -122.40130699999997);
 
     // LOAD MAP AND HIDDEN HIDER MARKER
     initMap();
@@ -53,28 +53,28 @@ $(document).ready(function() {
       if (distance <= .5 && distance > .25) {
         if (inTierOne) {
           inTierOne = false;
-          alert("Tier One");
+          alert("Tier One: " + (Math.round(distance * 5282)) + " feet away");
         }
       } else if (distance <= .25 && distance > 0.189394) {
         if (inTierTwo) {
           inTierTwo = false;
-          alert("Tier Two");
+          alert("Tier Two: " + (Math.round(distance * 5282)) + " feet away");
         }
 
       } else if (distance <= 0.189394 && distance > 0.094697) { //1000 ft
         if (inTierThree) {
           inTierThree = false;
-          alert("Tier Three");
+          alert("Tier Three: " + (Math.round(distance * 5282)) + " feet away");
         }
       } else if (distance <= 0.094697 && distance > 0.0189394) { //500 ft
         if (inTierFour) {
           inTierFour = false;
-          alert("Tier Four");
+          alert("Tier Four: " + (Math.round(distance * 5282)) + " feet away");
         }
       } else if (distance <= 0.0189394) { //100 ft
         if (inTierFive) {
           inTierFive = false;
-          alert("Tier Five");
+          alert("Tier Five: " + (Math.round(distance * 5282)) + " feet away");
         }
       }
     }
