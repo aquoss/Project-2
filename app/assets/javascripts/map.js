@@ -1,53 +1,119 @@
-console.log('hey');
-
+// currentLocation()
 $(document).ready(function() {
+
     var map;
+    var distance;
+    var hidersLocation = {
+        lat: 37.800073,
+        lng: -122.410572
+    };
+    var seekersLocation;
+    var hidersMapLocation = new google.maps.LatLng(37.800073,-122.410572);
+
+    // LOAD MAP AND HIDDEN HIDER MARKER
+    initMap();
+    addMarker(hidersLocation);
+
+    // ADD RADIUS CIRCLE
+    var circle = new google.maps.Circle({
+        map: map,
+        radius: 1609, // 10 miles in metres
+        fillColor: '#155fee',
+        strokeWeight: 0
+    });
+    circle.bindTo('center', marker, 'position');
 
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
             center: {
-                lat: -34.397,
-                lng: 150.644
+                lat: 37.7904586,
+                lng: -122.4016422
             },
-            zoom: 8
+            zoom: 12,
+            disableDefaultUI: true
         });
     }
-    initMap()
 
+    function addMarker(){
+      // console.log(hidersLocation)
+      marker = new google.maps.Marker({
+        position: hidersLocation,
+        map: map
+      })
+      marker.setVisible(false);
+    }
+
+    var inTierOne = false; //.5 miles from center
+    var inTierTwo = false; //.25 miles from center
+    var inTierThree = false; //1000 ft from center
+    var inTierFour = false; //500 ft from center
+    var inTierFive = false; //100 ft from center
+
+    function checkDistance(){
+      if (distance < .5) {
+        if (inTierOne = false) {
+          alert1();
+        }
+      } else if (distance < .25) {
+        if (inTierTwo = false) {
+          alert2();
+        }
+
+      } else if (distance < 0.189394) { //1000 ft
+        if (inTierThree = false) {
+          alert3();
+        }
+      } else if (distance < 0.094697) { //500 ft
+        if (inTierFour = false) {
+          alert4();
+        }
+      } else if (distance < 0.0189394) { //100 ft
+        if (inTierFive = false) {
+          alert5();
+        }
+      }
+    }
+
+    // function alert1(){
+    //   inTierOne = true;
+    // }
+
+    //CONTINUALLY UPDATE SEEKERS LOCATION
+    var watchId = navigator.geolocation.watchPosition(geo_success, geo_error, geo_options);
+    // on success
+    function geo_success(position) {
+        seekersLocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+        };
+        var seekersMapLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        distance = google.maps.geometry.spherical.computeDistanceBetween(hidersMapLocation, seekersMapLocation)/1609.34;
+        checkDistance(distance);
+        console.log(distance);
+    }
+    // on error
+    function geo_error() {
+        console.log("Sorry, no position available.");
+    }
+    // accuracy options
+    var geo_options = {
+        enableHighAccuracy: true,
+        timeout: 5000
+    };
 
 })
 
-function currentLocation() {
-    // Try HTML5 geolocation.
-
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-
-            console.log(ltlng)
-
-            map.setCenter(ltlng)
-        });
-    } else {
-        alert("Looks like your browser doesn't support geocoding!");
-    }
-}
-
-var watchId = navigator.geolocation.watchPosition(geo_success, geo_error, geo_options);
-
-
-function geo_success(position) {
-  console.log(position.coords.latitude, position.coords.longitude);
-  var ltlng = {
-      lat: position.coords.latitude,
-      lng: position.coords.longitude
-  }
-}
-
-function geo_error() {
-  console.log("Sorry, no position available.");
-}
-
-var geo_options = {
-  enableHighAccuracy: true,
-  timeout           : 5000
-};
+// GETS CURRENT LOCATION
+// function currentLocation() {
+//   if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(function(position) {
+//       var ltlng = {
+//         lat: position.coords.latitude,
+//         lng: position.coords.longitude
+//       }
+//       hidersLocation = ltlng
+//     });
+//   } else {
+//     alert("Looks like your browser doesn't support geocoding!");
+//   }
+// }

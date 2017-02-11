@@ -1,0 +1,22 @@
+<div class="container center">
+  <div class="row">
+    <h4>Login</h4>
+  </div>
+  <div class="row">
+    <%= form_for @user, url: "/sessions", method: "post" do |f| %>
+    <div class="input-field col s6 offset-s3">
+      <%= f.text_field :email, placeholder: "Email" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6 offset-s3">
+      <%= f.password_field :password, placeholder: "Password" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6 offset-s3">
+      <%= f.submit "Log In", class: "btn" %>
+    </div>
+  </div>
+</div>
+<% end %>
