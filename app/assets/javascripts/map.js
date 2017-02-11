@@ -79,10 +79,6 @@ $(document).ready(function() {
       }
     }
 
-    // function alert1(){
-    //   inTierOne = true;
-    // }
-
     //CONTINUALLY UPDATE SEEKERS LOCATION
     var watchId = navigator.geolocation.watchPosition(geo_success, geo_error, geo_options);
     // on success
