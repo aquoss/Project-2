@@ -64,7 +64,7 @@ $(document).ready(function() {
       } else if (distance <= 0.189394 && distance > 0.094697) { //1000 ft
         if (inTierThree) {
           inTierThree = false;
-          $('#modal1').modal('open');
+          $('#modal3').modal('open');
           // alert("Tier Three: " + (Math.round(distance * 5282)) + " feet away");
         }
       } else if (distance <= 0.094697 && distance > 0.0189394) { //500 ft
