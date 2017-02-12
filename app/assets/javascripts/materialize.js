@@ -1,4 +1,5 @@
 $(document).ready(function(){
-  $(".dropdown-button").dropdown();
+  $('.parallax').parallax();
+  $('.dropdown-button').dropdown();
   $('.collapsible').collapsible();
 })
