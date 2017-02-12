@@ -9,17 +9,24 @@ class GameController < ApplicationController
   def create
     game = Game.new(game_params)
     user = session[:user_id]
-    if game.save
+    p "game is ", game
+    if(!has_user?(game.hider_id))
+      flash[:user_not_found] = "User not found"
+    elsif(game.save)
       redirect_to user_path(user)
     else
       redirect_to game_new_path
     end
+    # if (has_user?(game.hider_id) && game.save)
+    #   redirect_to user_path(user)
+    #
+    # end
   end
 
 
   private
 
   def game_params
-    params.require(:game).permit(:game_duration, :wager, :hider_lat, :hider_lng)
+    params.require(:game).permit(:game_duration, :wager, :hider_lat, :hider_lng, :hider_id)
   end
 end
