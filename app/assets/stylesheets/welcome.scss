@@ -1,5 +1,5 @@
 body {
-  background-color: #003344;
+  background: #003344;
 }
 
 .large-logo-pic {
@@ -22,11 +22,6 @@ body {
 
 nav {
   background: rgba(0,0,0,0);
-}
-
-
-body {
-  background:#0b1d2a;
 }
 
 .arrows {
@@ -75,6 +70,10 @@ body {
 .arrows path.a3 {
 	animation-delay:0s;
 	-webkit-animation-delay:0s;
+}
+
+#container-one {
+  height: 60vh;
 }
 
 .gif {
