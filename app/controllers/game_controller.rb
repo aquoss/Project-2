@@ -10,8 +10,8 @@ class GameController < ApplicationController
     game = Game.new(game_params)
     user = session[:user_id]
     p "game is ", game
-    if(!has_user?(game.hider_id))
-      flash[:user_not_found] = "User not found"
+    if(has_user?(game.hider_id))
+
     elsif(game.save)
       redirect_to user_path(user)
     else
