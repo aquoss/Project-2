@@ -10,11 +10,11 @@ Rails.application.routes.draw do
   post '/sessions' => 'sessions#create'
 
 
-  get '/game/new' => 'game#new'
+  get '/games/new' => 'game#new'
 
 
-  get '/game/:id' => 'game#show', as: 'game'
-  patch '/game/:id' => 'game#show'
+  get '/games/:id' => 'game#show', as: 'game'
+  put '/games/:id' => 'game#update'
   post '/games' => 'game#create'
 
 end

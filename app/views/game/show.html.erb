@@ -58,8 +58,8 @@
     <p>You are Within 1000 feet!</p>
   </div>
   <div class="modal-footer">
-    <%= form_for @game, html: {method: :update} do |f| %>
-      <%= f.hidden_field :game_over?, :value => true %>
+    <%= form_for @game, :method => :put do |f| %>
+      <%= hidden_field_tag :game_over?, true %>
       <%= f.submit 'YOU WIN!!!' %>
     <% end %>
     <!-- <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Keep Searching</a> -->
