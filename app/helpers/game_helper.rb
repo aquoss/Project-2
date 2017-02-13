@@ -3,7 +3,10 @@ module GameHelper
     p "username inside game helper is ", username
     User.find_by(username: username)
   end
-
+  def get_user_id(username)
+    user = User.find_by(username: username)
+    user.id
+  end
   def assign_hider(hider)
     @game.hider = hider
   end
@@ -12,7 +15,16 @@ module GameHelper
      Game.where(seeker_id: user, game_over?: nil)
   end
 
+  def total_requests(id)
+    Game.where(seeker_id: id, game_over?: nil).length
+  end
   def pending_requests(user)
+    games =
      Game.where(hider_id: user,  game_over?: nil)
+     p games
+  end
+
+  def total_pending(id)
+    Game.where(hider_id: id, game_over?: nil).length
   end
 end

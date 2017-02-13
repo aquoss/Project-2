@@ -8,9 +8,9 @@
     </thead>
 
     <tbody>
-      <% game_requests(@user.id).each do |req| %>
+      <% pending_requests(@user.id).each do |req| %>
         <tr>
-            <td><%= req.hider.username %></td>
+            <td><%= req.seeker.username %></td>
             <td><%= req.game_duration %></td>
             <td><%= req.wager %></td>
             <td><%= link_to "Accept", class: "btn" %></td>

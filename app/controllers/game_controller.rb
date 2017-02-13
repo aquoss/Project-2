@@ -8,9 +8,14 @@ class GameController < ApplicationController
 
   def create
     game = Game.new(game_params)
+    game[:hider_id] = session[:user_id]
     user = session[:user_id]
     p "game is ", game.seeker_id
-    if(has_user?(game.seeker_id) && game.save)
+    if(has_user? game.seeker_id)
+      game[:seeker_id] = get_user_id(game.seeker_id)
+
+    end
+    if (game.save)
       redirect_to user_path(user)
     else
       redirect_to game_new_path
