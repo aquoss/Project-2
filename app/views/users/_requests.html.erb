@@ -1,0 +1,5 @@
+<% game_requests(@user.id).each do |req| %>
+  <span>Username:
+    <%= req.hider.username %>
+  </span>
+<% end %>
