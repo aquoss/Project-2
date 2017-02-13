@@ -9,7 +9,8 @@ $(document).ready(function() {
 
     // LOAD MAP AND HIDDEN HIDER MARKER
     initMap();
-    addMarker(hidersLocation);
+    addMarker(hidersLocation, false);
+    seekerMarker = addMarker(seekersLocation, true);
 
     // ADD RADIUS CIRCLE
     var circle = new google.maps.Circle({
@@ -31,13 +32,13 @@ $(document).ready(function() {
         });
     }
 
-    function addMarker(){
+    function addMarker(location, visibility){
       // console.log(hidersLocation)
       marker = new google.maps.Marker({
-        position: hidersLocation,
+        position: location,
         map: map
       })
-      marker.setVisible(false);
+      marker.setVisible(visibility);
     }
 
     var inTierOne = true; //.5 miles from center
@@ -89,7 +90,9 @@ $(document).ready(function() {
             lat: position.coords.latitude,
             lng: position.coords.longitude
         };
+
         var seekersMapLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        seekerMarker.setPosition(seekersMapLocation);
         distance = google.maps.geometry.spherical.computeDistanceBetween(hidersMapLocation, seekersMapLocation)/1609.34;
         checkDistance(distance);
         console.log("distance is: ", distance);
