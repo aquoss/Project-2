@@ -3,6 +3,10 @@
     <%= content_tag(:div,"", data:{lat: @game.hider_lat, lng: @game.hider_lng}, hidden: true, class: "hider-loc")  %>
 </section>
 
+
+<button class="accept-game">Test</button>
+<%= content_tag(:div, "", data:{duration: @game.game_duration}, hidden: true, class: "game-duration") %>
+
 <section class="row">
     <!-- CHAT LOCATION -->
     <div class="col s6 offset-s1">
