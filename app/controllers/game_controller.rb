@@ -30,13 +30,21 @@ class GameController < ApplicationController
     @game = Game.find(params[:id])
   end
 
-  def update
+  def over
     game = Game.find(params[:id])
     if game.update(game_over?: params[:game_over?])
       flash[:notice] = "Game Over has been added!"
       redirect_to user_path(game.hider)
     end
 
+  end
+
+  def accept
+    p "params are ", params
+    game = Game.find_by_id(params[:game][:game_id])
+    if game.update(game_accepted?: params[:game_accepted?])
+      redirect_to game_path(game)
+    end
   end
 
 

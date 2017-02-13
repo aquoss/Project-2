@@ -3,10 +3,14 @@ $(document).ready(function() {
 
     var map;
     var distance;
-    var hidersLocation;
     var seekersLocation;
-    var hidersMapLocation = new google.maps.LatLng(37.791823, -122.40130699999997);
-
+    var hiderLat = $('.hider-loc').data('lat'),
+        hiderLng = $('.hider-loc').data('lng');
+        var hidersMapLocation = new google.maps.LatLng(hiderLat, hiderLng);
+    var hidersLocation = {
+      lat: hiderLat,
+      lng: hiderLng
+    }
     // LOAD MAP AND HIDDEN HIDER MARKER
     initMap();
     addMarker(hidersLocation);
