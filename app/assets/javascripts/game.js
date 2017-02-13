@@ -22,7 +22,7 @@ $(document).ready(function(){
 
   $('.accept-game').on('click',function(){
     jQuery(function ($) {
-        var minutes = $('.game-duration').data;
+        var minutes = $('.game-duration').data('duration');
         var timeInSeconds = 60 * minutes,
             display = $('#time');
         startTimer(timeInSeconds, display);
