@@ -9,11 +9,16 @@ class GameController < ApplicationController
   def create
     game = Game.new(game_params)
     user = session[:user_id]
-    if game.save
+    p "game is ", game.seeker_id
+    if(has_user?(game.seeker_id) && game.save)
       redirect_to user_path(user)
     else
-      redirect_to new_game_path
+      redirect_to game_new_path
     end
+    # if (has_user?(game.hider_id) && game.save)
+    #   redirect_to user_path(user)
+    #
+    # end
   end
 
   def show
@@ -32,6 +37,6 @@ class GameController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:game_duration, :wager, :hider_lat, :hider_lng)
+    params.require(:game).permit(:game_duration, :wager, :hider_lat, :hider_lng, :seeker_id, :hider_id)
   end
 end

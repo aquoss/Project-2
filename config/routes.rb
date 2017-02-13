@@ -11,8 +11,10 @@ Rails.application.routes.draw do
 
 
   get '/game/new' => 'game#new'
-  post '/game/:id' => 'game#create'
+
+
   get '/game/:id' => 'game#show', as: 'game'
-  put '/game/:id' => 'game#show'
+  patch '/game/:id' => 'game#show'
+  post '/games' => 'game#create'
 
 end
