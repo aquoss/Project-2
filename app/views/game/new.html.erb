@@ -1,0 +1,24 @@
+<div class="container center">
+<%= form_for @game do |f| %>
+<div class="row">
+  <div class="input-field col s6 offset-s3">
+    <%= f.text_field :wager, placeholder: "Make a Wager" %>
+  </div>
+  <div class="input-field col s6 offset-s3">
+    <%= f.text_field :seeker_id, placeholder: "Friend's username" %>
+  </div>
+</div>
+  <div class="row">
+    <div class="input-field col s6 offset-s3">
+      <%= f.select :game_duration, time: [[10], [25], [30], [45], [60]] %>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6 offset-s3">
+      <%= f.submit "Send Invite!", class: "btn" %>
+    </div>
+  </div>
+</div>
+<% end %>
+<% console %>

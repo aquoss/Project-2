@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   post '/sessions' => 'sessions#create'
 
 
-  get '/game/new' => 'game#new', as: 'new_game'
+  get '/game/new' => 'game#new'
   get '/game/:id' => 'game#show'
+  post '/games' => 'game#create'
 
 end
