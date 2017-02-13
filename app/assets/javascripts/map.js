@@ -3,14 +3,18 @@ $(document).ready(function() {
 
     var map;
     var distance;
-    var hidersLocation;
     var seekersLocation;
-    var hidersMapLocation = new google.maps.LatLng(37.791823, -122.40130699999997);
-
+    var hiderLat = $('.hider-loc').data('lat'),
+        hiderLng = $('.hider-loc').data('lng');
+        var hidersMapLocation = new google.maps.LatLng(hiderLat, hiderLng);
+    var hidersLocation = {
+      lat: hiderLat,
+      lng: hiderLng
+    }
     // LOAD MAP AND HIDDEN HIDER MARKER
     initMap();
     addMarker(hidersLocation, false);
-    seekerMarker = addMarker(seekersLocation, true);
+
 
     // ADD RADIUS CIRCLE
     var circle = new google.maps.Circle({
@@ -90,13 +94,19 @@ $(document).ready(function() {
             lat: position.coords.latitude,
             lng: position.coords.longitude
         };
-
+        console.log("seekersLocation inside geo success is ", seekersLocation)
+        var seekerMarker = new google.maps.Marker({
+          position: seekersLocation,
+          map: map
+        })
+        console.log("seekerMarker inside geo success is ", seekerMarker)
         var seekersMapLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-        seekerMarker.setPosition(seekersMapLocation);
+        seekerMarker.setPosition(seekersLocation);
         distance = google.maps.geometry.spherical.computeDistanceBetween(hidersMapLocation, seekersMapLocation)/1609.34;
         checkDistance(distance);
         console.log("distance is: ", distance);
     }
+
     // on error
     function geo_error() {
         console.log("Sorry, no position available.");

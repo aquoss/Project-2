@@ -13,7 +13,7 @@
             <td><%= req.hider.username %></td>
             <td><%= req.game_duration %></td>
             <td><%= req.wager %></td>
-            <td><%= link_to "Accept", class: "btn" %></td>
+            <td><%= render "start", :req => req %></td>
             <td><%= link_to "Decline", class: "btn" %></td>
         </tr>
         <% end %>

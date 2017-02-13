@@ -14,7 +14,8 @@ Rails.application.routes.draw do
 
 
   get '/games/:id' => 'game#show', as: 'game'
-  put '/games/:id' => 'game#update'
+  put '/games/:id' =>   'game#accept', as: 'game_start'
+  put '/games/:id/over' => 'game#over', as: 'game_over'
   post '/games' => 'game#create'
 
 end
