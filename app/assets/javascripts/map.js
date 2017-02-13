@@ -3,10 +3,7 @@ $(document).ready(function() {
 
     var map;
     var distance;
-    var hidersLocation = {
-        lat: 37.800073,
-        lng: -122.410572
-    };
+    var hidersLocation;
     var seekersLocation;
     var hidersMapLocation = new google.maps.LatLng(37.791823, -122.40130699999997);
 
@@ -109,17 +106,25 @@ $(document).ready(function() {
 
 })
 
-// GETS CURRENT LOCATION
-// function currentLocation() {
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(function(position) {
-//       var ltlng = {
-//         lat: position.coords.latitude,
-//         lng: position.coords.longitude
-//       }
-//       hidersLocation = ltlng
-//     });
-//   } else {
-//     alert("Looks like your browser doesn't support geocoding!");
-//   }
-// }
+if(window.location.pathname == '/games/new'){
+  currentLocation();
+
+}
+
+function currentLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var ltlng = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      }
+      hidersLocation = ltlng
+      $('#hider-lat').val(position.coords.latitude);
+      console.log($('#hider-lat').val())
+      $('#hider-lng').val(position.coords.longitude);
+      console.log(hidersLocation)
+    });
+  } else {
+    alert("Looks like your browser doesn't support geocoding!");
+  }
+}
