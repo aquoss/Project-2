@@ -2,6 +2,7 @@
     <div id="map" class="col s8 offset-s1"></div>
 </section>
 
+
 <section class="row">
     <!-- CHAT LOCATION -->
     <div class="col s6 offset-s1">
@@ -29,3 +30,62 @@
         </div>
     </div>
 </section>
+
+<!-- Modal Structure -->
+<!-- <div id="modal1" class="modal">
+  <div class="modal-content">
+    <h4>You Have Entered Tier One</h4>
+    <p>You are Within a Half Mile!</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Keep Searching</a>
+  </div>
+</div> -->
+<!-- Modal Structure -->
+<!-- <div id="modal2" class="modal">
+  <div class="modal-content">
+    <h4>You Have Entered Tier Two</h4>
+    <p>You are Within a Quarter Mile!</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Keep Searching</a>
+  </div>
+</div> -->
+<!-- Modal Structure -->
+<div id="modal3" class="modal">
+  <div class="modal-content">
+    <h4>You Have Entered Tier Three</h4>
+    <p>You are Within 1000 feet!</p>
+  </div>
+  <div class="modal-footer">
+    <%= form_for @game, html: {method: :update} do |f| %>
+      <%= f.hidden_field :game_over?, :value => true %>
+      <%= f.submit 'YOU WIN!!!' %>
+    <% end %>
+    <!-- <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Keep Searching</a> -->
+  </div>
+</div>
+<!-- Modal Structure -->
+<div id="modal4" class="modal">
+  <div class="modal-content">
+    <h4>You Have Entered Tier Four</h4>
+    <p>You are Within 500 feet!</p>
+  </div>
+  <div class="modal-footer">
+    <%= form_for @game, html: {method: :update} do |f| %>
+      <%= f.hidden_field :game_over?, :value => true %>
+      <%= f.submit 'YOU WIN!!!' %>
+    <% end %>
+    <!-- <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Keep Searching</a> -->
+  </div>
+</div>
+<!-- Modal Structure -->
+<div id="modal5" class="modal">
+  <div class="modal-content">
+    <h4>You Have Entered Tier Five</h4>
+    <p>You are Within 100 feet!</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Keep Searching</a>
+  </div>
+</div>

@@ -64,17 +64,22 @@ $(document).ready(function() {
       } else if (distance <= 0.189394 && distance > 0.094697) { //1000 ft
         if (inTierThree) {
           inTierThree = false;
-          alert("Tier Three: " + (Math.round(distance * 5282)) + " feet away");
+          $('#modal3').modal('open');
+          // alert("Tier Three: " + (Math.round(distance * 5282)) + " feet away");
         }
       } else if (distance <= 0.094697 && distance > 0.0189394) { //500 ft
         if (inTierFour) {
           inTierFour = false;
-          alert("Tier Four: " + (Math.round(distance * 5282)) + " feet away");
+          $('#modal1').modal('open');
+          // alert("Tier Four: " + (Math.round(distance * 5282)) + " feet away");
         }
       } else if (distance <= 0.0189394) { //100 ft
         if (inTierFive) {
           inTierFive = false;
-          alert("Tier Five: " + (Math.round(distance * 5282)) + " feet away");
+          $('#modal1').modal('open');
+          // alert("Tier Five: " + (Math.round(distance * 5282)) + " feet away");
+          // in the alert, have a button to end the game
+
         }
       }
     }
