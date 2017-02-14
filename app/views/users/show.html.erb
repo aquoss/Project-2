@@ -3,19 +3,27 @@
         <div class="col s4">
             <%= image_tag @user.profile_photo, class: "profile-photo" %>
         </div>
-        <div class="col s8">
-            <div class="card-panel teal">
-                <h4>Past Bets</h4>
-                <h5>Won</h5>
-                bet 1<br>
-                bet 2<br>
-                bet 3<br>
-                <h5>Lost</h5>
-                bet 1<br>
-                bet 2<br>
-                bet 3<br>
-            </div>
-        </div>
+
+        <!-- BETS WON -->
+        <ul class="collapsible col s8 blue" data-collapsible="accordion">
+            <li>
+                <div class="collapsible-header">
+                    <p class="valign">Bets Won</p>
+                </div>
+                <div class="collapsible-body"><%= render "bets_won" %>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header">
+                    <span class="badge"><%= total_pending(@user.id) %></span>
+                    <i class="material-icons">live_help</i>
+                    <p class="valign">Bets Lost</p>
+                </div>
+                <div class="collapsible-body">
+                    <%= render "bets_lost" %>
+                </div>
+            </li>
+        </ul>
     </div>
 
     <div class="row valign-wrapper">

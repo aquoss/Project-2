@@ -26,4 +26,14 @@ module GameHelper
   def total_pending(id)
     Game.where(hider_id: id, game_over?: nil).length
   end
+  def games_won(id)
+    p "id is ", id
+     game = Game.where(winner: id)
+     p "bets won games are ", game
+     game
+  end
+
+  def games_lost(id)
+    Game.where(loser: id)
+  end
 end
