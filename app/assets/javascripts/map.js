@@ -55,12 +55,16 @@ $(document).ready(function() {
       if (distance <= .5 && distance > .25) {
         if (inTierOne) {
           inTierOne = false;
-          alert("Tier One: " + (Math.round(distance * 5282)) + " feet away");
+          // $("#tier-header").html("You Have Entered Tier Four");
+          // $("#tier-content").html("You are Within 500 feet!")
+          $('#modal1').modal('open');
+          // alert("Tier One: " + (Math.round(distance * 5282)) + " feet away");
         }
       } else if (distance <= .25 && distance > 0.189394) {
         if (inTierTwo) {
           inTierTwo = false;
-          alert("Tier Two: " + (Math.round(distance * 5282)) + " feet away");
+          $('#modal2').modal('open');
+          // alert("Tier Two: " + (Math.round(distance * 5282)) + " feet away");
         }
 
       } else if (distance <= 0.189394 && distance > 0.094697) { //1000 ft
@@ -72,13 +76,13 @@ $(document).ready(function() {
       } else if (distance <= 0.094697 && distance > 0.0189394) { //500 ft
         if (inTierFour) {
           inTierFour = false;
-          $('#modal1').modal('open');
+          $('#modal4').modal('open');
           // alert("Tier Four: " + (Math.round(distance * 5282)) + " feet away");
         }
       } else if (distance <= 0.0189394) { //100 ft
         if (inTierFive) {
           inTierFive = false;
-          $('#modal1').modal('open');
+          $('#modal5').modal('open');
           // alert("Tier Five: " + (Math.round(distance * 5282)) + " feet away");
           // in the alert, have a button to end the game
 

@@ -4,7 +4,8 @@
       <%= content_tag(:div,"", data:{lat: @game.hider_lat, lng: @game.hider_lng}, hidden: true, class: "hider-loc")  %>
   </section>
 
-  <%= content_tag(:div, "", data:{duration: @game.game_duration}, hidden: true, class: "game-duration") %>
+  <%= content_tag(:div, "", data:{duration: @game.game_duration, updated: @game.updated_at.to_s}, hidden: true, class: "game-duration") %>
+
 
   <section class="row">
       <!-- CHAT LOCATION -->
@@ -23,6 +24,22 @@
           </div>
       </div>
 
+
+<div id="modal1" class="modal">
+    <%= render "tier_modals" %>
+</div>
+<div id="modal2" class="modal">
+    <%= render "tier_modals" %>
+</div>
+<div id="modal3" class="modal">
+    <%= render "tier_modals" %>
+</div> 
+<div id="modal4" class="modal">
+    <%= render "tier_modals" %>
+</div>
+<div id="modal5" class="modal">
+    <%= render "final_modal" %>
+
       <!-- HINT LOCATION -->
       <div class="col s2 card">
           <div class="card-content">
@@ -34,67 +51,4 @@
       </div>
   </section>
 
-<% if current_user.id.to_s == @game.seeker_id %>
-  <button id="game-show">Test</button>
-<% end %>
-
-
-  <!-- Modal Structure -->
-  <!-- <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>You Have Entered Tier One</h4>
-      <p>You are Within a Half Mile!</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Keep Searching</a>
-    </div>
-  </div> -->
-  <!-- Modal Structure -->
-  <!-- <div id="modal2" class="modal">
-    <div class="modal-content">
-      <h4>You Have Entered Tier Two</h4>
-      <p>You are Within a Quarter Mile!</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Keep Searching</a>
-    </div>
-  </div> -->
-  <!-- Modal Structure -->
-  <div id="modal3" class="modal">
-      <div class="modal-content">
-          <h4>You Have Entered Tier Three</h4>
-          <p>You are Within 1000 feet!</p>
-      </div>
-      <div class="modal-footer">
-          <%= form_for @game, :method => :put, url: game_over_path do |f| %>
-          <%= hidden_field_tag :game_over?, true %>
-          <%= f.submit 'YOU WIN!!!' %>
-          <% end %>
-          <!-- <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Keep Searching</a> -->
-      </div>
-  </div>
-  <!-- Modal Structure -->
-  <div id="modal4" class="modal">
-      <div class="modal-content">
-          <h4>You Have Entered Tier Four</h4>
-          <p>You are Within 500 feet!</p>
-      </div>
-      <div class="modal-footer">
-          <%= form_for @game, html: {method: :put}, url: game_over_path do |f| %>
-          <%= f.hidden_field :game_over?, :value => true %>
-          <%= f.submit 'YOU WIN!!!' %>
-          <% end %>
-          <!-- <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Keep Searching</a> -->
-      </div>
-  </div>
-  <!-- Modal Structure -->
-  <div id="modal5" class="modal">
-      <div class="modal-content">
-          <h4>You Have Entered Tier Five</h4>
-          <p>You are Within 100 feet!</p>
-      </div>
-      <div class="modal-footer">
-          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Keep Searching</a>
-      </div>
-  </div>
 </div>
