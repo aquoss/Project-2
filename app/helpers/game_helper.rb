@@ -32,7 +32,9 @@ module GameHelper
      p "bets won games are ", game
      game
   end
-
+  def find_username(id)
+    User.find_by_id(id).username
+  end
   def games_lost(id)
     Game.where(loser: id)
   end
