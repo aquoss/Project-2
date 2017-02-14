@@ -33,6 +33,7 @@ class GameController < ApplicationController
 
   def over
     game = Game.find(params[:id])
+
     winner = params[:game][:winner]
     loser = params[:game][:loser]
     if game.update(game_over?: :game_over?, winner: winner, loser: loser)
@@ -44,7 +45,8 @@ class GameController < ApplicationController
   def accept
     p "params are ", params
     game = Game.find_by_id(params[:game][:game_id])
-    if game.update(game_accepted?: params[:game_accepted?])
+    p "game is ", game
+    if game.update(game_accepted?: true)
       redirect_to game_path(game)
     end
   end
