@@ -1,3 +1,87 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background: #003344;
+}
+
+.large-logo-pic {
+  width: 20vh;
+  height: auto;
+  vertical-align: bottom;
+}
+
+#logo-div {
+  height: 100vh;
+}
+
+#logo-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20vh;
+  text-align: center;
+  color: white;
+  margin-top: 13vh;
+}
+
+nav {
+  background: rgba(0,0,0,0);
+}
+
+.arrows {
+	width: 60px;
+	height: 72px;
+	position: absolute;
+	left: 50%;
+	margin-left: -30px;
+	bottom: 5vh;
+}
+
+.arrows path {
+	stroke: #2994D1;
+	fill: transparent;
+	stroke-width: 5px;
+	animation: arrow 2s infinite;
+	-webkit-animation: arrow 2s infinite;
+}
+
+@keyframes arrow
+{
+0% {opacity:0}
+40% {opacity:1}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+@-webkit-keyframes arrow /*Safari and Chrome*/
+{
+0% {opacity:0}
+40% {opacity:1}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+.arrows path.a1 {
+	animation-delay:-1s;
+	-webkit-animation-delay:-1s;
+}
+
+.arrows path.a2 {
+	animation-delay:-0.5s;
+	-webkit-animation-delay:-0.5s;
+}
+
+.arrows path.a3 {
+	animation-delay:0s;
+	-webkit-animation-delay:0s;
+}
+
+#container-one {
+  height: 60vh;
+}
+
+.heading {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 5vh;
+}
+
+.gif {
+  min-width: 50% !important;
+  text-align: left;
+}
