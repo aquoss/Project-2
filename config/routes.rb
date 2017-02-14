@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   put '/games/:id' =>   'game#accept', as: 'game_start'
   put '/games/:id/over' => 'game#over', as: 'game_over'
   post '/games' => 'game#create'
+  delete '/games/:id' => 'game#destroy'
 
 end

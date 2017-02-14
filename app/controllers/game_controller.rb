@@ -42,7 +42,8 @@ class GameController < ApplicationController
   def accept
     p "params are ", params
     game = Game.find_by_id(params[:game][:game_id])
-    if game.update(game_accepted?: params[:game_accepted?])
+    p "game is ", game
+    if game.update(game_accepted?: true)
       redirect_to game_path(game)
     end
   end

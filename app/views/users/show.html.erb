@@ -23,7 +23,7 @@
             <li>
                 <div class="collapsible-header">
                     <span class="new badge">
-                      <%= total_requests(@user.id) %>
+                        <%= total_requests(@user.id) %>
                     </span>
                     <i class="material-icons">error_outline</i>
                     <p class="valign">findMe Requests</p>
@@ -33,7 +33,7 @@
             </li>
             <li>
                 <div class="collapsible-header">
-                    <span class="badge">1</span>
+                    <span class="badge"><%= total_pending(@user.id) %></span>
                     <i class="material-icons">live_help</i>
                     <p class="valign">Pending Responses</p>
                 </div>
@@ -45,5 +45,7 @@
     </div>
 
     <%= link_to "New Game", games_new_path, class: "btn" %>
-
+    <div id="game-accepted" class="modal">
+      <%= render "game_accepted" %>
+    </div>
 </div>
