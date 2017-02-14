@@ -1,4 +1,4 @@
-body {
+#welcome-page {
   background: #003344;
   color: white;
 }
@@ -10,9 +10,9 @@ body {
 }
 
 .small-logo-pic {
-  width: 6vh;
-  height: auto;
-  vertical-align: bottom;
+  max-height: 90%;
+  vertical-align: middle;
+  margin-left: 8px;
 }
 
 
@@ -29,7 +29,8 @@ body {
 }
 
 nav {
-  background: rgba(0,0,0,0);
+  background: #003344;
+
 }
 
 .arrows {
