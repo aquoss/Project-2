@@ -1,6 +1,5 @@
 // currentLocation()
 $(document).ready(function() {
-
     var map;
     var distance;
     var seekersLocation;
@@ -14,8 +13,6 @@ $(document).ready(function() {
     // LOAD MAP AND HIDDEN HIDER MARKER
     initMap();
     addMarker(hidersLocation, false);
-
-
     // ADD RADIUS CIRCLE
     var circle = new google.maps.Circle({
         map: map,
@@ -24,7 +21,6 @@ $(document).ready(function() {
         strokeWeight: 0
     });
     circle.bindTo('center', marker, 'position');
-
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
             center: {
@@ -35,7 +31,6 @@ $(document).ready(function() {
             disableDefaultUI: true
         });
     }
-
     function addMarker(location, visibility){
       // console.log(hidersLocation)
       marker = new google.maps.Marker({
@@ -44,13 +39,11 @@ $(document).ready(function() {
       })
       marker.setVisible(visibility);
     }
-
     var inTierOne = true; //.5 miles from center
     var inTierTwo = true; //.25 miles from center
     var inTierThree = true; //1000 ft from center
     var inTierFour = true; //500 ft from center
     var inTierFive = true; //100 ft from center
-
     function checkDistance(){
       if (distance <= .5 && distance > .25) {
         if (inTierOne) {
@@ -66,7 +59,6 @@ $(document).ready(function() {
           $('#modal2').modal('open');
           // alert("Tier Two: " + (Math.round(distance * 5282)) + " feet away");
         }
-
       } else if (distance <= 0.189394 && distance > 0.094697) { //1000 ft
         if (inTierThree) {
           inTierThree = false;
@@ -85,11 +77,9 @@ $(document).ready(function() {
           $('#modal5').modal('open');
           // alert("Tier Five: " + (Math.round(distance * 5282)) + " feet away");
           // in the alert, have a button to end the game
-
         }
       }
     }
-
     //CONTINUALLY UPDATE SEEKERS LOCATION
     var watchId = navigator.geolocation.watchPosition(geo_success, geo_error, geo_options);
     // on success
@@ -110,7 +100,6 @@ $(document).ready(function() {
         checkDistance(distance);
         console.log("distance is: ", distance);
     }
-
     // on error
     function geo_error() {
         console.log("Sorry, no position available.");
@@ -120,14 +109,10 @@ $(document).ready(function() {
         enableHighAccuracy: true,
         timeout: 5000
     };
-
 })
-
 if(window.location.pathname == '/games/new'){
   currentLocation();
-
 }
-
 function currentLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
