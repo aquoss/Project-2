@@ -8,9 +8,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMgpuT7-zoEehYsAqejmiIRhmDZRNb2G8&libraries=geometry"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
   </head>
 
-  <body>
+  <body class="container">
     <%= render "layouts/nav" %>
     <% flash.each do |name, msg| %>
       <p>
