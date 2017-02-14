@@ -1,13 +1,13 @@
 <div>
   <section class="row">
-      <div id="map" class="col s8 offset-s1"></div>
+      <div id="map" class="col s10 offset-s1"></div>
       <%= content_tag(:div,"", data:{lat: @game.hider_lat, lng: @game.hider_lng}, hidden: true, class: "hider-loc")  %>
       <div id="out-of-time">
         <%= form_for @game, html: {method: :put}, url: game_over_path do |f| %>
           <%= f.hidden_field :game_over?, :value => true %>
           <%= f.hidden_field :winner, :value => @game.hider_id %>
           <%= f.hidden_field :loser, :value => @game.seeker_id %>
-          <%= f.submit "Game Over! Click to Continue...", class: "btn btn-navy" %>
+          <%= f.submit "Game Over! Click to Continue...", class: "btn btn-navy col s4 offset-s4" %>
         <% end %>
       </div>
   </section>
@@ -17,7 +17,7 @@
   <section class="row">
     <% if current_user.id.to_s == @game.hider_id %>
       <!-- CHAT LOCATION -->
-      <div class="col s6 offset-s1">
+      <div class="col s10 offset-s1">
           <div class="card-panel white">
               <span>In a later version this will be used for chat, so as the hider you can send messages to the seeker. You can choose to be a supportive friend and give them hints, or to taunt them as they try to find you.
               </span>
@@ -48,15 +48,16 @@
       </div>
       <div id="modal5" class="modal">
           <%= render "final_modal" %>
+      </div>
 
       <!-- HINT LOCATION -->
-      <div class="col s2 card">
-          <div class="card-content">
-              Hints Remaining: 4
-          </div>
-          <div class="card-action">
-              <a href="#" class="btn center">Hint</a>
-          </div>
+      <div class="col s4 offset-s4 center card">
+        <div class="card-content">
+          Hints Remaining: 4
+        </div>
+        <div class="card-action">
+          <a href="#" class="btn btn-navy center">Hint</a>
+        </div>
       </div>
     <% end %>
   </section>

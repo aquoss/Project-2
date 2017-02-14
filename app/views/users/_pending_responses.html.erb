@@ -13,7 +13,6 @@
             <td><%= req.seeker.username %></td>
             <td><%= req.game_duration %></td>
             <td><%= req.wager %></td>
-            <td><%= req.game_accepted? %></td>
 
             <% if req.game_accepted? == true %>
             <td><%= link_to "Join", game_path(req.id), class: "btn" %></td>

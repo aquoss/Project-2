@@ -7,6 +7,6 @@
   <%= f.hidden_field :game_over?, :value => true %>
   <%= f.hidden_field :winner, :value => @game.seeker_id %>
   <%= f.hidden_field :loser, :value => @game.hider_id %>
-  <%= f.submit 'YOU WIN!!!' %>
+  <%= f.submit 'YOU WIN!!!', class: "btn btn-navy" %>
   <% end %>
 </div>
