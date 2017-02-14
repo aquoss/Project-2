@@ -1,35 +1,28 @@
-<section class="row">
-    <div id="map" class="col s8 offset-s1"></div>
-    <%= content_tag(:div,"", data:{lat: @game.hider_lat, lng: @game.hider_lng}, hidden: true, class: "hider-loc")  %>
-</section>
+<div>
+  <section class="row">
+      <div id="map" class="col s8 offset-s1"></div>
+      <%= content_tag(:div,"", data:{lat: @game.hider_lat, lng: @game.hider_lng}, hidden: true, class: "hider-loc")  %>
+  </section>
 
-<section class="row">
-    <!-- CHAT LOCATION -->
-    <div class="col s6 offset-s1">
-        <div class="card-panel teal">
-            <span class="white-text">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-            </span>
-            <form>
-                <div class="input-field">
-                    <input type="text" placeholder="send a message">
-                </div>
-                <div class="input-field">
-                    <button class="btn submit blue">Submit</button>
-                </div>
-            </form>
-        </div>
-    </div>
+  <%= content_tag(:div, "", data:{duration: @game.game_duration}, hidden: true, class: "game-duration") %>
 
-    <!-- HINT LOCATION -->
-    <div class="col s2 card">
-        <div class="card-content">
-            Hints Remaining: 4
-        </div>
-        <div class="card-action">
-            <a href="#" class="btn center">Hint</a>
-        </div>
-    </div>
-</section>
+  <section class="row">
+      <!-- CHAT LOCATION -->
+      <div class="col s6 offset-s1">
+          <div class="card-panel teal">
+              <span class="white-text">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+              </span>
+              <form>
+                  <div class="input-field">
+                      <input type="text" placeholder="send a message">
+                  </div>
+                  <div class="input-field">
+                      <button class="btn submit blue">Submit</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+
 
 <div id="modal1" class="modal">
     <%= render "tier_modals" %>
@@ -45,4 +38,16 @@
 </div>
 <div id="modal5" class="modal">
     <%= render "final_modal" %>
+
+      <!-- HINT LOCATION -->
+      <div class="col s2 card">
+          <div class="card-content">
+              Hints Remaining: 4
+          </div>
+          <div class="card-action">
+              <a href="#" class="btn center">Hint</a>
+          </div>
+      </div>
+  </section>
+
 </div>
