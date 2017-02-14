@@ -20,7 +20,10 @@ $(document).ready(function(){
       }, 1000);
   }
 
-  $('.accept-game').on('click',function(){
+  $('#game-show').click(displayTimer);
+
+  function displayTimer(){
+    console.log('it works');
     jQuery(function ($) {
         var minutes = $('.game-duration').data('duration');
         var timeInSeconds = 60 * minutes,
@@ -28,7 +31,7 @@ $(document).ready(function(){
         startTimer(timeInSeconds, display);
     });
 
-  });
+  };
 
 
 });

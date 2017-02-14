@@ -1,95 +1,100 @@
-<section class="row">
-    <div id="map" class="col s8 offset-s1"></div>
-    <%= content_tag(:div,"", data:{lat: @game.hider_lat, lng: @game.hider_lng}, hidden: true, class: "hider-loc")  %>
-</section>
+<div>
+  <section class="row">
+      <div id="map" class="col s8 offset-s1"></div>
+      <%= content_tag(:div,"", data:{lat: @game.hider_lat, lng: @game.hider_lng}, hidden: true, class: "hider-loc")  %>
+  </section>
+
+  <%= content_tag(:div, "", data:{duration: @game.game_duration}, hidden: true, class: "game-duration") %>
+
+  <section class="row">
+      <!-- CHAT LOCATION -->
+      <div class="col s6 offset-s1">
+          <div class="card-panel teal">
+              <span class="white-text">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+              </span>
+              <form>
+                  <div class="input-field">
+                      <input type="text" placeholder="send a message">
+                  </div>
+                  <div class="input-field">
+                      <button class="btn submit blue">Submit</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+
+      <!-- HINT LOCATION -->
+      <div class="col s2 card">
+          <div class="card-content">
+              Hints Remaining: 4
+          </div>
+          <div class="card-action">
+              <a href="#" class="btn center">Hint</a>
+          </div>
+      </div>
+  </section>
+
+<% if current_user.id.to_s == @game.seeker_id %>
+  <button id="game-show">Test</button>
+<% end %>
 
 
-<button class="accept-game">Test</button>
-<%= content_tag(:div, "", data:{duration: @game.game_duration}, hidden: true, class: "game-duration") %>
-
-<section class="row">
-    <!-- CHAT LOCATION -->
-    <div class="col s6 offset-s1">
-        <div class="card-panel teal">
-            <span class="white-text">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-            </span>
-            <form>
-                <div class="input-field">
-                    <input type="text" placeholder="send a message">
-                </div>
-                <div class="input-field">
-                    <button class="btn submit blue">Submit</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- HINT LOCATION -->
-    <div class="col s2 card">
-        <div class="card-content">
-            Hints Remaining: 4
-        </div>
-        <div class="card-action">
-            <a href="#" class="btn center">Hint</a>
-        </div>
-    </div>
-</section>
-
-<!-- Modal Structure -->
-<!-- <div id="modal1" class="modal">
-  <div class="modal-content">
-    <h4>You Have Entered Tier One</h4>
-    <p>You are Within a Half Mile!</p>
-  </div>
-  <div class="modal-footer">
-    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Keep Searching</a>
-  </div>
-</div> -->
-<!-- Modal Structure -->
-<!-- <div id="modal2" class="modal">
-  <div class="modal-content">
-    <h4>You Have Entered Tier Two</h4>
-    <p>You are Within a Quarter Mile!</p>
-  </div>
-  <div class="modal-footer">
-    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Keep Searching</a>
-  </div>
-</div> -->
-<!-- Modal Structure -->
-<div id="modal3" class="modal">
+  <!-- Modal Structure -->
+  <!-- <div id="modal1" class="modal">
     <div class="modal-content">
-        <h4>You Have Entered Tier Three</h4>
-        <p>You are Within 1000 feet!</p>
+      <h4>You Have Entered Tier One</h4>
+      <p>You are Within a Half Mile!</p>
     </div>
     <div class="modal-footer">
-        <%= form_for @game, :method => :put, url: game_over_path do |f| %>
-        <%= hidden_field_tag :game_over?, true %>
-        <%= f.submit 'YOU WIN!!!' %>
-        <% end %>
-        <!-- <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Keep Searching</a> -->
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Keep Searching</a>
     </div>
-</div>
-<!-- Modal Structure -->
-<div id="modal4" class="modal">
+  </div> -->
+  <!-- Modal Structure -->
+  <!-- <div id="modal2" class="modal">
     <div class="modal-content">
-        <h4>You Have Entered Tier Four</h4>
-        <p>You are Within 500 feet!</p>
+      <h4>You Have Entered Tier Two</h4>
+      <p>You are Within a Quarter Mile!</p>
     </div>
     <div class="modal-footer">
-        <%= form_for @game, html: {method: :put}, url: game_over_path do |f| %>
-        <%= f.hidden_field :game_over?, :value => true %>
-        <%= f.submit 'YOU WIN!!!' %>
-        <% end %>
-        <!-- <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Keep Searching</a> -->
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Keep Searching</a>
     </div>
-</div>
-<!-- Modal Structure -->
-<div id="modal5" class="modal">
-    <div class="modal-content">
-        <h4>You Have Entered Tier Five</h4>
-        <p>You are Within 100 feet!</p>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Keep Searching</a>
-    </div>
+  </div> -->
+  <!-- Modal Structure -->
+  <div id="modal3" class="modal">
+      <div class="modal-content">
+          <h4>You Have Entered Tier Three</h4>
+          <p>You are Within 1000 feet!</p>
+      </div>
+      <div class="modal-footer">
+          <%= form_for @game, :method => :put, url: game_over_path do |f| %>
+          <%= hidden_field_tag :game_over?, true %>
+          <%= f.submit 'YOU WIN!!!' %>
+          <% end %>
+          <!-- <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Keep Searching</a> -->
+      </div>
+  </div>
+  <!-- Modal Structure -->
+  <div id="modal4" class="modal">
+      <div class="modal-content">
+          <h4>You Have Entered Tier Four</h4>
+          <p>You are Within 500 feet!</p>
+      </div>
+      <div class="modal-footer">
+          <%= form_for @game, html: {method: :put}, url: game_over_path do |f| %>
+          <%= f.hidden_field :game_over?, :value => true %>
+          <%= f.submit 'YOU WIN!!!' %>
+          <% end %>
+          <!-- <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Keep Searching</a> -->
+      </div>
+  </div>
+  <!-- Modal Structure -->
+  <div id="modal5" class="modal">
+      <div class="modal-content">
+          <h4>You Have Entered Tier Five</h4>
+          <p>You are Within 100 feet!</p>
+      </div>
+      <div class="modal-footer">
+          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Keep Searching</a>
+      </div>
+  </div>
 </div>
