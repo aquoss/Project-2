@@ -1,25 +1,23 @@
 <div class="container center" id="new-game">
-<%= form_for @game do |f| %>
-<div class="row">
-  <div class="input-field col s6 offset-s3">
-    <%= f.text_field :wager, placeholder: "Make a Wager" %>
-  </div>
-  <div class="input-field col s6 offset-s3">
-    <%= f.text_field :seeker_id, placeholder: "Friend's username" %>
-  </div>
-  <%= f.hidden_field :hider_lat, id: "hider-lat" %>
-  <%= f.hidden_field :hider_lng, id: "hider-lng" %>
-</div>
-  <div class="row">
-    <div class="input-field col s6 offset-s3">
-      <%= f.select :game_duration, time: [[10], [25], [30], [45], [60]] %>
+  <%= form_for @game do |f| %>
+    <div class="row">
+      <div class="input-field col s6 offset-s3">
+        <%= f.text_field :wager, placeholder: "Make a Wager" %>
+      </div>
+      <div class="input-field col s6 offset-s3">
+        <%= f.text_field :seeker_id, placeholder: "Friend's username" %>
+        <%= f.hidden_field :hider_lat, id: "hider-lat" %>
+        <%= f.hidden_field :hider_lng, id: "hider-lng" %>
+      </div>
 
+      <div class="input-field col s6 offset-s3 select">
+        <%= f.select :game_duration, time: [[10], [25], [30], [45], [60]] %>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s6 offset-s3">
-      <%= f.submit "Send Invite!", class: "btn" %>
+    <div class="row">
+      <div class="input-field col s6 offset-s3">
+        <%= f.submit "Send Invite!", class: "btn" %>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
-<% end %>
