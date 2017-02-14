@@ -55,6 +55,8 @@ $(document).ready(function() {
       if (distance <= .5 && distance > .25) {
         if (inTierOne) {
           inTierOne = false;
+          // $("#tier-header").html("You Have Entered Tier Four");
+          // $("#tier-content").html("You are Within 500 feet!")
           $('#modal1').modal('open');
           // alert("Tier One: " + (Math.round(distance * 5282)) + " feet away");
         }
