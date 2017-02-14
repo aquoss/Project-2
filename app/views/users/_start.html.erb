@@ -1,5 +1,5 @@
 <%= form_for req , html: {method: :put}, url: game_start_path do |f| %>
 <%= f.hidden_field :game_accepted?, :value => true %>
 <%= f.hidden_field :game_id, :value => req.id %>
-<%= f.submit 'Accept' %>
+<%= f.submit 'Accept', class: "btn btn-navy" %>
 <% end %>
