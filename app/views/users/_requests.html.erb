@@ -1,0 +1,21 @@
+<table>
+    <thead>
+        <tr>
+            <th data-field="id">Username</th>
+            <th data-field="name">Duration</th>
+            <th data-field="price">Wager</th>
+        </tr>
+    </thead>
+
+    <tbody>
+      <% game_requests(@user.id).each do |req| %>
+        <tr>
+            <td><%= req.hider.username %></td>
+            <td><%= req.game_duration %></td>
+            <td><%= req.wager %></td>
+            <td><%= render "start", :req => req %></td>
+            <td><%= link_to "Decline", class: "btn" %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

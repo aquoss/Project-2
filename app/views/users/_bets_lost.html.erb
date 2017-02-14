@@ -1,0 +1,17 @@
+<table>
+    <thead>
+        <tr>
+            <th data-field="id">Winner</th>
+            <th data-field="price">Wager</th>
+        </tr>
+    </thead>
+
+    <tbody>
+      <% games_lost(@user.id).each do |req| %>
+        <tr>
+          <td><%= find_username(req.winner) %></td>
+          <td><%= req.wager %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

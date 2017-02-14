@@ -1,0 +1,28 @@
+<table>
+    <thead>
+        <tr>
+            <th data-field="id">Username</th>
+            <th data-field="name">Duration</th>
+            <th data-field="price">Wager</th>
+        </tr>
+    </thead>
+
+    <tbody>
+      <% pending_requests(@user.id).each do |req| %>
+        <tr>
+            <td><%= req.seeker.username %></td>
+            <td><%= req.game_duration %></td>
+            <td><%= req.wager %></td>
+            <td><%= req.game_accepted? %></td>
+
+            <% if req.game_accepted? == true %>
+            <td><%= link_to "Join", game_path(req.id), class: "btn" %></td>
+            <% else %>
+            <td><%= req.game_accepted? %></td>
+            <td><button class="btn disabled">Pending</button</td>
+              <% end %>
+            <td><%= link_to "Cancel", req, class:"btn red", method: :delete, data: {confirm: "Are you sure?"} %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

@@ -1,31 +1,64 @@
-<section class="row">
-    <div id="map" class="col s8 offset-s1"></div>
-</section>
+<div>
+  <section class="row">
+      <div id="map" class="col s8 offset-s1"></div>
+      <%= content_tag(:div,"", data:{lat: @game.hider_lat, lng: @game.hider_lng}, hidden: true, class: "hider-loc")  %>
+      <div id="out-of-time">
+        <%= form_for @game, html: {method: :put}, url: game_over_path do |f| %>
+          <%= f.hidden_field :game_over?, :value => true %>
+          <%= f.hidden_field :winner, :value => @game.hider_id %>
+          <%= f.hidden_field :loser, :value => @game.seeker_id %>
+          <%= f.submit "Game Over! Click to Continue...", class: "btn btn-navy" %>
+        <% end %>
+      </div>
+  </section>
 
-<section class="row">
-    <!-- CHAT LOCATION -->
-    <div class="col s6 offset-s1">
-        <div class="card-panel teal">
-            <span class="white-text">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-            </span>
-            <form>
-                <div class="input-field">
-                    <input type="text" placeholder="send a message">
-                </div>
-                <div class="input-field">
-                  <button class="btn submit blue">Submit</button>
-                </div>
-            </form>
-        </div>
-    </div>
+  <%= content_tag(:div, "", data:{duration: @game.game_duration, updated: @game.updated_at.to_s}, hidden: true, class: "game-duration") %>
 
-    <!-- HINT LOCATION -->
-    <div class="col s2 card">
-        <div class="card-content">
-            Hints Remaining: 4
-        </div>
-        <div class="card-action">
-            <a href="#" class="btn center">Hint</a>
-        </div>
-    </div>
-</section>
+  <section class="row">
+    <% if current_user.id.to_s == @game.hider_id %>
+      <!-- CHAT LOCATION -->
+      <div class="col s6 offset-s1">
+          <div class="card-panel white">
+              <span>In a later version this will be used for chat, so as the hider you can send messages to the seeker. You can choose to be a supportive friend and give them hints, or to taunt them as they try to find you.
+              </span>
+              <form>
+                  <div class="input-field">
+                      <input type="text" placeholder="send a message">
+                  </div>
+                  <div class="input-field">
+                      <button class="btn submit btn-navy">Submit</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+    <% end %>
+
+    <% if current_user.id.to_s == @game.seeker_id %>
+      <div id="modal1" class="modal">
+          <%= render "tier_modals" %>
+      </div>
+      <div id="modal2" class="modal">
+          <%= render "tier_modals" %>
+      </div>
+      <div id="modal3" class="modal">
+          <%= render "tier_modals" %>
+      </div>
+      <div id="modal4" class="modal">
+          <%= render "tier_modals" %>
+      </div>
+      <div id="modal5" class="modal">
+          <%= render "final_modal" %>
+
+      <!-- HINT LOCATION -->
+      <div class="col s2 card">
+          <div class="card-content">
+              Hints Remaining: 4
+          </div>
+          <div class="card-action">
+              <a href="#" class="btn center">Hint</a>
+          </div>
+      </div>
+    <% end %>
+  </section>
+
+</div>
