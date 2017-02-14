@@ -13,8 +13,15 @@
             <td><%= req.seeker.username %></td>
             <td><%= req.game_duration %></td>
             <td><%= req.wager %></td>
-            <td><%= link_to "Accept", class: "btn" %></td>
-            <td><%= link_to "Decline", class: "btn" %></td>
+            <td><%= req.game_accepted? %></td>
+
+            <% if req.game_accepted? == true %>
+            <td><%= link_to "Join", game_path(req.id), class: "btn" %></td>
+            <% else %>
+            <td><%= req.game_accepted? %></td>
+            <td><button class="btn disabled">Pending</button</td>
+              <% end %>
+            <td><%= link_to "Cancel", req, class:"btn red", method: :delete, data: {confirm: "Are you sure?"} %></td>
         </tr>
         <% end %>
     </tbody>

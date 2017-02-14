@@ -21,7 +21,6 @@ module GameHelper
   def pending_requests(user)
     games =
      Game.where(hider_id: user,  game_over?: nil)
-     p games
   end
 
   def total_pending(id)
