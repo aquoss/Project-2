@@ -2,7 +2,7 @@ $(document).ready(function(){
   $('.parallax').parallax();
   $('.dropdown-button').dropdown();
   $('.collapsible').collapsible();
-
+  $('select').material_select();
   var options = [
     {selector: '.rule-one', offset: 200, callback: textFadeIn},
     {selector: '.rule-two', offset: 200, callback: textFadeIn},
