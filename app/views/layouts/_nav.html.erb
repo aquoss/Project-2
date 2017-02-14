@@ -1,7 +1,8 @@
 <!-- Dropdown Structure -->
 <ul id="nav-dropdown" class="dropdown-content">
     <% if current_user %>
-    <li><%= link_to "Instructions" %></li>
+    <li><%= link_to "Instructions", instructions_path %></li>
+    <li><%= link_to "Profile", user_path(current_user.id) %></li>
     <li><%= link_to "Logout", logout_path %></li>
 <% else %>
     <li><%= link_to "Create Account", new_user_path %></li>

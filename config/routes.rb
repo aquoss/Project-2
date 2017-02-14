@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get '/' => 'welcome#index', as: 'root'
-
+  get '/instructions' => 'welcome#instructions'
   get '/users/new' => 'users#new', as: 'new_user'
   get '/users/:id' => 'users#show', as: 'user'
   post '/users' => 'users#create'
