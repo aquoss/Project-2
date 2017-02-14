@@ -4,7 +4,8 @@
       <%= content_tag(:div,"", data:{lat: @game.hider_lat, lng: @game.hider_lng}, hidden: true, class: "hider-loc")  %>
   </section>
 
-  <%= content_tag(:div, "", data:{duration: @game.game_duration}, hidden: true, class: "game-duration") %>
+  <%= content_tag(:div, "", data:{duration: @game.game_duration, updated: @game.updated_at.to_s}, hidden: true, class: "game-duration") %>
+
 
   <section class="row">
       <!-- CHAT LOCATION -->
@@ -34,9 +35,9 @@
       </div>
   </section>
 
-<% if current_user.id.to_s == @game.seeker_id %>
-  <button id="game-show">Test</button>
-<% end %>
+<!-- <% if current_user.id.to_s == @game.seeker_id %>
+  <%= content_tag(:div, "Test", id:"game-show", data: {updated_at: "#{@game.updated_at}"}) %>
+<% end %> -->
 
 
   <!-- Modal Structure -->
