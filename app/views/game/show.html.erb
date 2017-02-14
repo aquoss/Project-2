@@ -2,6 +2,14 @@
   <section class="row">
       <div id="map" class="col s8 offset-s1"></div>
       <%= content_tag(:div,"", data:{lat: @game.hider_lat, lng: @game.hider_lng}, hidden: true, class: "hider-loc")  %>
+      <div id="out-of-time">
+        <%= form_for @game, html: {method: :put}, url: game_over_path do |f| %>
+          <%= f.hidden_field :game_over?, :value => true %>
+          <%= f.hidden_field :winner, :value => @game.hider_id %>
+          <%= f.hidden_field :loser, :value => @game.seeker_id %>
+          <%= f.submit "Game Over! Click to Continue..." %>
+        <% end %>
+      </div>
   </section>
 
   <%= content_tag(:div, "", data:{duration: @game.game_duration, updated: @game.updated_at.to_s}, hidden: true, class: "game-duration") %>
@@ -25,20 +33,20 @@
       </div>
 
 
-<div id="modal1" class="modal">
-    <%= render "tier_modals" %>
-</div>
-<div id="modal2" class="modal">
-    <%= render "tier_modals" %>
-</div>
-<div id="modal3" class="modal">
-    <%= render "tier_modals" %>
-</div> 
-<div id="modal4" class="modal">
-    <%= render "tier_modals" %>
-</div>
-<div id="modal5" class="modal">
-    <%= render "final_modal" %>
+      <div id="modal1" class="modal">
+          <%= render "tier_modals" %>
+      </div>
+      <div id="modal2" class="modal">
+          <%= render "tier_modals" %>
+      </div>
+      <div id="modal3" class="modal">
+          <%= render "tier_modals" %>
+      </div>
+      <div id="modal4" class="modal">
+          <%= render "tier_modals" %>
+      </div>
+      <div id="modal5" class="modal">
+          <%= render "final_modal" %>
 
       <!-- HINT LOCATION -->
       <div class="col s2 card">
