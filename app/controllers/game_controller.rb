@@ -20,10 +20,6 @@ class GameController < ApplicationController
     else
       redirect_to game_new_path
     end
-    # if (has_user?(game.hider_id) && game.save)
-    #   redirect_to user_path(user)
-    #
-    # end
   end
 
   def show
