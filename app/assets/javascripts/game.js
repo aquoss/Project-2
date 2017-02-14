@@ -5,9 +5,9 @@ $(document).ready(function(){
   var timer = setInterval(countdown, 1000);
   function countdown(){
     var duration = $('.game-duration').data('duration')*60000;
-    var updated = $('.game-duration').data('updated');
-    var date = Date.parse(updated);
-    var totalTime = duration - (Date.now() - date);
+    var updatedString = $('.game-duration').data('updated');
+    var updated = Date.parse(updatedString);
+    var totalTime = duration - (Date.now() - updated);
     if (totalTime <= 0) {
       clearInterval(timer);
     } else {
