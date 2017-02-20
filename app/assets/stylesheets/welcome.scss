@@ -3,6 +3,28 @@
   color: white;
 }
 
+nav i.material-icons {
+  font-size: 4vh;
+}
+
+nav ul {
+  margin: 0 10px 0 0;
+}
+
+#nav-dropdown {
+  width: auto !important;
+}
+
+#nav-dropdown li {
+  height: 70px;
+  padding-top: 10px;
+}
+
+nav ul li a {
+  font-size: 2.3vh !important;
+  text-align: center;
+}
+
 .large-logo-pic {
   width: 20vh;
   height: auto;
@@ -29,7 +51,6 @@
 
 nav {
   background: #003344;
-
 }
 
 .arrows {
@@ -101,9 +122,6 @@ nav {
 }
 
 .create-btn {
-  width: 100%;
-  height: 6vh;
-  font-size: 3vh;
-  margin-top: 6vh;
-  padding-top: 2vh;
+  margin-top: 7vh;
+  font-size: 4vh;
 }
