@@ -1,8 +1,6 @@
-# README
-
 # findMe
 
-* Project Description
+### Project Description
 
 The app that we are developing is a mobile-friendly designed game that allows
 users to play a version of hide and seek with their friends.  The idea of the
@@ -11,7 +9,7 @@ a map radius through Google Maps. There is also a wager option to make the game 
 The seeker wins when they find the hiders location within 100 feet. The hider wins when the
 seeker has run out of time and has not found the hider.
 
-* User Stories
+### User Stories
 
 This game appeals to a user that is young and active throughout their city. A user
 might be meeting a group of friends at a bar or restaurant, but wants to have a little
@@ -20,7 +18,7 @@ and track their friends progress in getting to their location.  Similarly, whome
 invited can win a quick beer or appetizer by finding the hider before time runs out. This
 app gives the user, whether hider or seeker, a fun way to meet up with friends.
 
-* Technologies Used
+### Technologies Used
   - HTML
   - CSS
   - Ruby
@@ -31,7 +29,7 @@ app gives the user, whether hider or seeker, a fun way to meet up with friends.
   - Google Maps API
   - Google Geolocation API
 
-* Wish List / Future Development
+### Wish List / Future Development
 
 One thing we wish we could have added to this project is a "hint" button. We
 wanted to incorporate a way for the seeker to have an easier way of finding the
@@ -43,7 +41,7 @@ play, instead of just entering the username. Along with that, we would like to
 incorporate a messaging portion between friends, so that each user could chat with
 their partner, as well as trash talk a little.
 
-* Links
+### Links
 
 [Heroku](https://findme-game.herokuapp.com/)
 
