@@ -1,6 +1,6 @@
 # README
 
-# FINDmE
+# findMe
 
 * Project Description
 
@@ -45,9 +45,9 @@ their partner, as well as trash talk a little.
 
 * Links
 
-Heroku: https://desolate-ravine-80925.herokuapp.com/
+[Heroku](https://findme-game.herokuapp.com/)
 
 Contributors:
-  Amber Quoss ->  https://github.com/aquoss
-  Aaron Steele ->  https://github.com/nzoLogic
-  Ryan Thomas ->  https://github.com/ryanthomas92
+  [Amber Quoss](https://github.com/aquoss)
+  [Aaron Steele](https://github.com/nzoLogic)
+  [Ryan Thomas](https://github.com/ryanthomas92)
